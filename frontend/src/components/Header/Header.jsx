@@ -1,6 +1,10 @@
 import './Header.css'
+import { usePopup } from "../App/App.jsx"
 
-function Header() {
+function Header({}) {
+
+	const {openPopup} = usePopup()
+
 	return(
 		<>
 			<div className="header">
@@ -8,7 +12,7 @@ function Header() {
 					<a className="header__navigation-logo" href="/">NewsExplorer</a>
 					<div className="header__navigation-btns">
 						<a className="header__navigation-btn-home" href="#">Início</a>
-						<button className="header__navigation-btn-signin">Entrar</button>
+						<button className="header__navigation-btn-signin" onClick={openPopup}>Entrar</button>
 					</div>
 				</div>
 			</div>
