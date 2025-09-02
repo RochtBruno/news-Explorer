@@ -1,0 +1,40 @@
+.header{
+	padding: 25px 150px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header__navigation{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__navigation-logo{
+	font-size: 25px;
+	line-height: 24px;
+	font-weight: 700;
+	text-decoration: none;
+	color: white;
+}
+
+.header__navigation-btns{
+	display: flex;
+	gap: 80px;
+	align-items: center;
+}
+
+.header__navigation-btn-home{
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+}
+
+.header__navigation-btn-signin{
+	padding: 12px 50px;
+	border-radius: 100px;
+	border: 1px solid #fff;
+	cursor: pointer;
+	background-color: transparent;
+	color: white;
+	font-size: 16px;
+}

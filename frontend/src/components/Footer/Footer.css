@@ -1,0 +1,26 @@
+.footer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 60px;
+}
+
+.footer__copyright{
+	color: #888888;
+}
+
+.footer__contact{
+	display: flex;
+	gap: 35px;
+	align-items: center;
+}
+
+.footer__contact-home{
+	text-decoration: none;
+	color: #000;
+}
+
+.footer__contact-links{
+	font-size: 20px;
+	cursor: pointer;
+}
