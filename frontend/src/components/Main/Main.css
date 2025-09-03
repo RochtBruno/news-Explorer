@@ -68,3 +68,11 @@
 	background-color: #2A65CC;
 }
 
+.cardlist__title{
+	font-size: 40px;
+	font-weight: 400;
+	padding-top: 60px;
+	padding-left: 40px;
+	background-color: #F5F6F7;
+}
+

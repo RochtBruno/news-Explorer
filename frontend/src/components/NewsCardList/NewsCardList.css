@@ -3,14 +3,14 @@
 	padding: 60px 30px;
 }
 
-.cardlist__title{
+/* .cardlist__title{
 	font-size: 40px;
 	font-weight: 400;
 	padding-left: 30px;
-}
+} */
 
 .cardlist__wrapper{
-	padding: 40px 0;
+	padding: 15px 0;
 	display: flex;
 	gap: 30px;
 	flex-wrap: wrap;

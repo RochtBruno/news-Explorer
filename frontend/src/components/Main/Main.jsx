@@ -25,6 +25,7 @@ function Main() {
 					<PopupWithForm onClose={closePopup} />
 				)}
 			</main>
+			<h2 className="cardlist__title">Procurar resultados</h2>
 			<NewsCardList />
 			<About />
 		</>

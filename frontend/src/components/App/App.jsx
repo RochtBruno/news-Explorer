@@ -2,6 +2,7 @@ import { useState, createContext, useContext } from 'react'
 import './App.css'
 import Main from "../Main/Main.jsx"
 import Footer from "../Footer/Footer.jsx"
+import SavedNews from "../SavedNews/SavedNews.jsx"
 
 
 import { Routes, Route } from "react-router";
@@ -26,6 +27,7 @@ function App() {
 		<PopupContext.Provider value={{ openPopup: handleOpenPopup, closePopup: handleClosePopup, isPopupOpen }}>
 			<Routes>
 				<Route path="/" element={<Main />} />
+				<Route path="/saved-news" element={<SavedNews/>} />
 			</Routes>
 			<Footer />
 		</PopupContext.Provider>

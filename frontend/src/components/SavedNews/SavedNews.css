@@ -1,0 +1,20 @@
+.savedNewsMain{
+	padding: 80px 40px;
+}
+
+.savedNews__info{
+	color: #1A1B2280;
+	font-size: 18px;
+	opacity: 0.5;
+	padding-bottom: 20px;
+}
+
+.savedNews__title{
+	font-size: 40px;
+	font-weight: 400;
+	padding-bottom: 25px;
+}
+
+.savedNews__keywords{
+	font-size: 18px
+}
