@@ -1,10 +1,10 @@
 import { useState, createContext, useContext } from 'react'
 import './App.css'
 import Main from "../Main/Main.jsx"
-import About from "../About/About.jsx"
 import Footer from "../Footer/Footer.jsx"
-import PopupWithForm from "../PopupWithForm/PopupWithForm.jsx"
-import NewsCardList from "../NewsCardList/NewsCardList.jsx"
+
+
+import { Routes, Route } from "react-router";
 export const PopupContext = createContext()
 
 export function usePopup() {
@@ -12,7 +12,7 @@ export function usePopup() {
 }
 
 function App() {
-	const [isPopupOpen,setPopupOpen] = useState(false)
+	const [isPopupOpen, setPopupOpen] = useState(false)
 
 	function handleOpenPopup(){
 		setPopupOpen(true)
@@ -23,14 +23,11 @@ function App() {
 	}
 
 	return(
-		<PopupContext.Provider value={{ openPopup: handleOpenPopup, closePopup: handleClosePopup }}>
-			<Main />
-			<NewsCardList />
-			<About />
+		<PopupContext.Provider value={{ openPopup: handleOpenPopup, closePopup: handleClosePopup, isPopupOpen }}>
+			<Routes>
+				<Route path="/" element={<Main />} />
+			</Routes>
 			<Footer />
-			{isPopupOpen && (
-				<PopupWithForm onClose={handleClosePopup} />
-			)}
 		</PopupContext.Provider>
 	)
 }

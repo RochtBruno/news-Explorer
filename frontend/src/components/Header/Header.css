@@ -1,5 +1,5 @@
 .header{
-	padding: 25px 70px;
+	padding: 15px 50px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -29,6 +29,10 @@
 	font-size: 18px;
 }
 
+.header__navigation-btn-home:hover{
+	opacity: 0.8;
+}
+
 .header__navigation-btn-signin{
 	padding: 12px 50px;
 	border-radius: 100px;
@@ -37,4 +41,11 @@
 	background-color: transparent;
 	color: white;
 	font-size: 16px;
+	transition: 0.1s;
+}
+
+.header__navigation-btn-signin:hover{
+	background-color: #fff;
+	opacity: 0.8;
+	color: #000;
 }

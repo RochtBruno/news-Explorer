@@ -1,7 +1,14 @@
 import "./Main.css"
 import Header from "../Header/Header.jsx"
+import About from "../About/About.jsx"
+import NewsCardList from "../NewsCardList/NewsCardList.jsx"
+import PopupWithForm from "../PopupWithForm/PopupWithForm.jsx"
+import { usePopup } from "../App/App.jsx"
 
 function Main() {
+
+	 const { closePopup, openPopup, isPopupOpen } = usePopup()
+
 	return(
 		<>
 			<main className="main">
@@ -14,7 +21,12 @@ function Main() {
 						<button className="main__content-research-btn">Procurar</button>
 					</div>
 				</div>
+				{isPopupOpen && (
+					<PopupWithForm onClose={closePopup} />
+				)}
 			</main>
+			<NewsCardList />
+			<About />
 		</>
 	)
 }

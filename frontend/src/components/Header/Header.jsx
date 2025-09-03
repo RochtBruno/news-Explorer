@@ -11,7 +11,7 @@ function Header({}) {
 				<div className="header__navigation">
 					<a className="header__navigation-logo" href="/">NewsExplorer</a>
 					<div className="header__navigation-btns">
-						<a className="header__navigation-btn-home" href="#">Início</a>
+						<a className="header__navigation-btn-home active" href="/">Início</a>
 						<button className="header__navigation-btn-signin" onClick={openPopup}>Entrar</button>
 					</div>
 				</div>

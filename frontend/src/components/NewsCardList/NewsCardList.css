@@ -18,7 +18,7 @@
 }
 
 .cardlist__btn-showAll{
-	background-color: #E8E8E8;
+	background-color: #fff;
 	color: black;
 	padding: 15px 60px;
 	border-radius: 25px;
@@ -27,4 +27,8 @@
 	cursor: pointer;
 	margin: 0 auto;
 	display: block;
+}
+
+.cardlist__btn-showAll:hover{
+	background-color: #E8E8E8;
 }

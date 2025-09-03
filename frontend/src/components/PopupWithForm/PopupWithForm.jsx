@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import "./PopupWithForm.css"
 import closePopup from "../../images/close.png"
 
-function PopupWithForm({type = "login", onClose}){
+function PopupWithForm({ onClose }){
 
 	const popupRef = useRef(null);
+	const [type, setType] = useState("login")
 
 	useEffect(() => {
 		function handleEsc(e) {
@@ -45,7 +46,18 @@ function PopupWithForm({type = "login", onClose}){
 							{type === "login" ? "Entrar" : "Inscrever-se"}
 						</button>
 					</form>
-					<a className="popupwithform__link" href={type === "login" ? "/signup" : "sigin"}>{type === "login" ? "Inscrever-se" : "Entrar"}</a>
+					<a 
+					className="popupwithform__link" 
+					href="/"
+					onClick={(e) => {
+						e.preventDefault()
+						if(type === "login"){
+							setType("register")
+						}else{
+							setType("login")
+						}
+					}}
+					>{type === "login" ? "Inscrever-se" : "Entrar"}</a>
 				</div>
 			</div>
 		</>

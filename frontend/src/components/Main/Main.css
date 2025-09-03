@@ -60,3 +60,11 @@
 	cursor: pointer;
 }
 
+.main__content-research-btn:hover{
+	background-color: #347EFF;
+}
+
+.main__content-research-btn:focus{
+	background-color: #2A65CC;
+}
+
