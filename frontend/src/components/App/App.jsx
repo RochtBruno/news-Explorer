@@ -4,7 +4,7 @@ import Main from "../Main/Main.jsx"
 import About from "../About/About.jsx"
 import Footer from "../Footer/Footer.jsx"
 import PopupWithForm from "../PopupWithForm/PopupWithForm.jsx"
-
+import NewsCardList from "../NewsCardList/NewsCardList.jsx"
 export const PopupContext = createContext()
 
 export function usePopup() {
@@ -25,6 +25,7 @@ function App() {
 	return(
 		<PopupContext.Provider value={{ openPopup: handleOpenPopup, closePopup: handleClosePopup }}>
 			<Main />
+			<NewsCardList />
 			<About />
 			<Footer />
 			{isPopupOpen && (
