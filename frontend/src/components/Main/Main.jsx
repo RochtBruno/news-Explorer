@@ -28,7 +28,8 @@ function Main() {
 			setArticles(data.articles)
 			console.log(data.articles)
 		} catch (error) {
-			setError("Erro ao buscar notícias")
+			setError("Desculpe, algo deu errado durante a solicitação. \
+				Pode haver um problema de conexão ou o servidor pode estar inativo. Por favor, tente novamente mais tarde.")
 		}
 		setLoading(false)
 	}
