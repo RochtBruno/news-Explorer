@@ -4,9 +4,25 @@
 	height: auto;
 	background-color: #fff;
 	border-radius: 16px;
-	box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.75);
-	-webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.75);
-	-moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.6);
+	cursor: pointer;
+	position: relative;
+}
+
+.newscard__save{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background-color: white;
+	padding: 7px;
+	border-radius: 8px;
+	opacity: 0.8;
+}
+
+.newscard__save:hover{
+	opacity: 1;
 }
 
 .newscard__img{

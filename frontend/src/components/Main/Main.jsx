@@ -4,10 +4,34 @@ import About from "../About/About.jsx"
 import NewsCardList from "../NewsCardList/NewsCardList.jsx"
 import PopupWithForm from "../PopupWithForm/PopupWithForm.jsx"
 import { usePopup } from "../App/App.jsx"
+import api from "../../utils/apiNewsExplorer.js"
+import { useState } from "react"
 
 function Main() {
 
-	 const { closePopup, openPopup, isPopupOpen } = usePopup()
+	const { closePopup, openPopup, isPopupOpen } = usePopup()
+	const [search, setSearch] = useState("")
+	const [error, setError] = useState("")
+	const [articles, setArticles] = useState([])
+	const [loading, setLoading] = useState(false)
+
+	async function handleSearch(e) {
+		e.preventDefault()
+		if(!search.trim()){
+			setError("Por favor, insira uma palavra-chave")
+			return
+		}
+		setError("")
+		setLoading(true)
+		try {
+			const data = await api.getNews(search)
+			setArticles(data.articles)
+			console.log(data.articles)
+		} catch (error) {
+			setError("Erro ao buscar notícias")
+		}
+		setLoading(false)
+	}
 
 	return(
 		<>
@@ -17,16 +41,31 @@ function Main() {
 					<h2 className="main__content-title">O que está acontecendo no mundo?</h2>
 					<p className="main__content-text">Encontre as últimas notícias sobre qualquer tema e salve elas em sua conta pessoal</p>
 					<div className="main__content-research">
-						<input className="main__content-research-input" type="text" placeholder="Inserir tema"/>
-						<button className="main__content-research-btn">Procurar</button>
+						<form className="main__content-research" onSubmit={handleSearch}>
+							<input 
+							className="main__content-research-input" 
+							type="text" 
+							placeholder="Inserir tema"
+							value={search}
+							onChange={e => setSearch(e.target.value)}
+							/>
+							<button 
+							className="main__content-research-btn"
+							type="submit"
+							>Procurar</button>
+						</form>
 					</div>
 				</div>
 				{isPopupOpen && (
 					<PopupWithForm onClose={closePopup} />
 				)}
 			</main>
-			<h2 className="cardlist__title">Procurar resultados</h2>
-			<NewsCardList />
+			{articles.length > 0 && <h2 className="cardlist__title">Procurar resultados</h2>}
+			{loading && <div className="loading">
+				<div className="loader-spinner"></div>
+				<p className="loading__text">Procurando notícias...</p>
+				</div>}
+			<NewsCardList articles={articles}/>
 			<About />
 		</>
 	)

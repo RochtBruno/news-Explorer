@@ -2,21 +2,21 @@ import "./NewsCardList.css"
 import { useState } from 'react'
 import NewsCard from "../NewsCard/NewsCard.jsx"
 
-const cardsData = [1, 2, 3, 4, 5, 6]
+// const cardsData = [1, 2, 3, 4, 5, 6]
 
-function NewsCardList(){
+function NewsCardList({articles = []}){
 	const [showAll, setShowAll] = useState(false)
-	const visibleCards = showAll ? cardsData : cardsData.slice(0,3)
+	const visibleCards = showAll ? articles : articles.slice(0,3)
 	return(
 		<>
 			<div className="cardlist">
 				
 				<div className="cardlist__wrapper">
-					{visibleCards.map((card,i) => (
-						<NewsCard key={i} />
+					{visibleCards.map((article,i) => (
+						<NewsCard key={i} article={article} />
 					))}
 				</div>
-				{cardsData.length > 3 && (
+				{articles.length > 3 && (
 					<button className="cardlist__btn-showAll" onClick={() => setShowAll(!showAll)}>
 						{showAll ? "Mostrar menos" : "Mostrar mais"}
 					</button>

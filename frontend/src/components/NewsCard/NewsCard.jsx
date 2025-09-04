@@ -1,17 +1,21 @@
 import "./NewsCard.css"
-import nature1 from "../../images/nature1.jpg"
+import savedMark from "../../images/saved.png"
+import notSavedMark from "../../images/notSaved.png"
 
-function NewsCard(){
+function NewsCard({article}){
 	return(
 		<>
 			<div className="newscard">
-				<img className="newscard__img" src={nature1} alt="" />
+				{/* <p className="newscard__topic">{}</p> */}
+				<div className="newscard__save">
+					<img src={notSavedMark} alt="" />
+				</div>
+				<img className="newscard__img" src={article.urlToImage} alt="" />
 				<div className="newscard__text-wrapper">
-					<p className="newscard__date">4 de novembro de 2021</p>
-					<h3 className="newscard__title">Todo mundo precisa de um ''Lugar Especial para Sentar" especial na naturezaza</h3>
-					<p className="newscard__text">Desde que li o influente livro de Richard Louv, "O Último Filho na Floresta", a ideia 
-						de ter um "lugar para sentar" especial me pegou de jeito. This advice, which Louv attributes to natureza...</p>
-					<p className="newscard__author">treehugger</p>
+					<p className="newscard__date">{article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : ""}</p>
+					<h3 className="newscard__title">{article.title}</h3>
+					<p className="newscard__text">{article.description}</p>
+					<p className="newscard__author">{article.source?.name}</p>
 				</div>
 			</div>
 		</>
