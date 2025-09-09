@@ -28,3 +28,34 @@
 .about__text-description{
 	font-size: 18px;
 }
+
+@media screen and (max-width: 1080px){
+	.about__image img{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.about{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 20px;
+	}
+	.about__image{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.about__image img{
+		width: 60%;
+		border-radius: 40px;
+	}
+
+	.about__text{
+		padding: 25px;
+		width: 90%;
+	}
+}

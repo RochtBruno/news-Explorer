@@ -73,3 +73,14 @@
 	display: block;
 	color: #2F71E5;
 }
+
+@media screen and (max-width: 768px){
+	.popupwithform{
+		width: 70%;
+	}
+
+	.popupwithform__close{
+		top: -40px;
+		right: 0px;
+	}
+}

@@ -2,7 +2,7 @@
 	background-image: url("../../images/main-bg.png");
 	background-position: center;
 	background-size: cover;
-	min-height: 600px;
+	min-height: 700px;
 	position: relative;
 }
 
@@ -102,5 +102,28 @@
 .loading__text{
 	font-size: 18px;
 	color: #B6BCBF;
+}
+
+@media screen and (max-width: 860px){
+	.main__content{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.main__content{
+		width: 90%;
+		padding-top: 100px;
+	}
+	.main__content-research-input{
+		width: 100%;
+	}
+
+	.main__content-research-btn{
+		right: 0;
+		margin-top: 20px;
+		position: relative;
+		width: 100%;
+	}
 }
 
