@@ -1,6 +1,7 @@
 import './Header.css'
 import { usePopup } from "../App/App.jsx"
 import { useAuth } from "../../contexts/AuthContext.jsx"
+import logoutImg from "../../images/logout.png"
 
 function Header({}) {
 
@@ -18,7 +19,10 @@ function Header({}) {
 							<a className="header__navigation-btn-home" href="/saved-news">Artigos salvos</a>
 						)}
 						{user ? (
-							<button className="header__navigation-btn-signin" onClick={logout}>{user.name}</button>
+							<button className="header__navigation-btn-signin" onClick={logout}>
+								{user.name}
+								<img src={logoutImg} alt="Sair" />
+								</button>
 						) : (
 							<button className="header__navigation-btn-signin" onClick={openPopup}>Entrar</button>
 						)}

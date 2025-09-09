@@ -14,6 +14,7 @@ function Main() {
 	const [error, setError] = useState("")
 	const [articles, setArticles] = useState([])
 	const [loading, setLoading] = useState(false)
+	const [lastKeyword, setLastKeyword] = useState("")
 
 	async function handleSearch(e) {
 		e.preventDefault()
@@ -27,6 +28,7 @@ function Main() {
 			const data = await api.getNews(search)
 			setArticles(data.articles)
 			console.log(data.articles)
+			setLastKeyword(search);
 		} catch (error) {
 			setError("Desculpe, algo deu errado durante a solicitação. \
 				Pode haver um problema de conexão ou o servidor pode estar inativo. Por favor, tente novamente mais tarde.")
@@ -66,7 +68,7 @@ function Main() {
 				<div className="loader-spinner"></div>
 				<p className="loading__text">Procurando notícias...</p>
 				</div>}
-			<NewsCardList articles={articles}/>
+			<NewsCardList articles={articles} keyword={lastKeyword}/>
 			<About />
 		</>
 	)

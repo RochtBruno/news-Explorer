@@ -35,6 +35,9 @@
 }
 
 .savedNews__navigation-btn-signin{
+	display: flex;
+	align-items: center;
+	gap: 5px;
 	padding: 12px 50px;
 	border-radius: 100px;
 	border: 1px solid #000;

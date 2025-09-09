@@ -31,6 +31,11 @@
 	border-top-right-radius: 16px;
 }
 
+.newscard__link{
+	text-decoration: none;
+	color: #000;
+}
+
 .newscard__text-wrapper{
 	padding: 20px;
 }

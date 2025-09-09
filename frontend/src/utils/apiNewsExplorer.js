@@ -58,6 +58,40 @@ class Api {
 		return res.json()
 	}
 
+	async saveArticle(article, token) {
+		const res = await fetch("http://localhost:3000/articles", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`
+			},
+			body: JSON.stringify(article)
+		});
+		if (!res.ok) throw await res.json();
+		return res.json();
+	}
+
+	async deleteArticle(id, token) {
+		const res = await fetch(`http://localhost:3000/articles/${id}`, {
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		});
+		if (!res.ok) throw await res.json();
+		return res.json();
+	}
+
+	async getSavedArticles(token) {
+		const res = await fetch("http://localhost:3000/articles", {
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		});
+		if (!res.ok) throw await res.json();
+		return res.json();
+	}
+
 	async getNews(keyword){
 		const today = new Date();
 		const to = today.toISOString().split('T')[0];

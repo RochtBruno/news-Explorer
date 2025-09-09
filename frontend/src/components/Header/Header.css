@@ -34,6 +34,9 @@
 }
 
 .header__navigation-btn-signin{
+	display: flex;
+	gap: 5px;
+	align-items: center;
 	padding: 12px 50px;
 	border-radius: 100px;
 	border: 1px solid #fff;
