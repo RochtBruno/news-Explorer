@@ -1,9 +1,11 @@
 import './Header.css'
 import { usePopup } from "../App/App.jsx"
+import { useAuth } from "../../contexts/AuthContext.jsx"
 
 function Header({}) {
 
 	const {openPopup} = usePopup()
+	const { user, logout } = useAuth()
 
 	return(
 		<>
@@ -12,8 +14,14 @@ function Header({}) {
 					<a className="header__navigation-logo" href="/">NewsExplorer</a>
 					<div className="header__navigation-btns">
 						<a className="header__navigation-btn-home" href="/">Início</a>
-						<a className="header__navigation-btn-home" href="/saved-news">Artigos salvos</a>
-						<button className="header__navigation-btn-signin" onClick={openPopup}>Entrar</button>
+						{user && (
+							<a className="header__navigation-btn-home" href="/saved-news">Artigos salvos</a>
+						)}
+						{user ? (
+							<button className="header__navigation-btn-signin" onClick={logout}>{user.name}</button>
+						) : (
+							<button className="header__navigation-btn-signin" onClick={openPopup}>Entrar</button>
+						)}
 					</div>
 				</div>
 			</div>

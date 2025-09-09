@@ -1,6 +1,9 @@
 import "./SavedNewsHeader.css"
+import { useAuth } from "../../contexts/AuthContext.jsx"
 
 function SavedNewsHeader({}) {
+
+	const { user } = useAuth()
 
 	return(
 		<>
@@ -10,7 +13,7 @@ function SavedNewsHeader({}) {
 					<div className="savedNews__navigation-btns">
 						<a className="savedNews__navigation-btn-home" href="/">Início</a>
 						<a className="savedNews__navigation-btn-home" href="/">Artigos salvos</a>
-						<button className="savedNews__navigation-btn-signin">Entrar</button>
+						<button className="savedNews__navigation-btn-signin">{user.name}</button>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 const express = require("express")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const User = require("../models/user.js")
 const auth = require("../middleware/auth.js")
@@ -24,6 +24,10 @@ router.post("/signin",async (req, res) => {
 		const user = await User.findOne({ email }).select("+password")
 		if(!user){
 			return res.status(401).send({message: "Email ou senha incorretos"})
+		}
+		const matched = await bcrypt.compare(password, user.password)
+		if(!matched){
+			return res.status(401).send({ message: "Email ou senha incorretos"})
 		}
 		const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
 			expiresIn: "7d"

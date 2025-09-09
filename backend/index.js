@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require ("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
@@ -9,7 +10,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb://localhost:27017/news-explorer");
+mongoose.connect("mongodb://localhost:27017/news-explorer")
+.then(() => console.log("connected to db"))
+.catch(err => console.log("error while connecting to db: ",err))
 
 app.use(userRouter)
 app.use("/articles", articlesRouter)
