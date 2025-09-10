@@ -2,6 +2,7 @@ class Api {
 
 	constructor({ newsApiKey}) {
 		this._newsApiKey = newsApiKey
+		this._baseUrl = "http://localhost:3000"
 	}
 
 	async _makeRequest(url, method, body, token) {
@@ -28,68 +29,27 @@ class Api {
 	}
 
 	async signupUser({ email, password, name}){
-		const res = await fetch("http://localhost:3000/signup", {
-			method: "POST",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({ email, password, name })
-		})
-		if(!res.ok)
-			throw await res.json()
-		return res.json()
+		return this._makeRequest(`/signup`,"POST",{email, password, name})
 	}
 
 	async signinUser({ email, password }){
-		const res = await fetch("http://localhost:3000/signin",{
-			method: "POST",
-			headers: {"Content-type": "application/json"},
-			body: JSON.stringify({ email, password })
-		})
-		if(!res.ok)
-			throw await res.json()
-		return res.json()
+		return this._makeRequest(`/signin`,"POST",{email,password})
 	}
 
 	async getUser(token){
-		const res = await fetch("http://localhost:3000/users/me",{
-			headers:{ Authorization: `Bearer ${token}`}
-		})
-		if(!res.ok)
-			throw await res.json()
-		return res.json()
+		return this._makeRequest(`/users/me`,"GET",null,token)
 	}
 
 	async saveArticle(article, token) {
-		const res = await fetch("http://localhost:3000/articles", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`
-			},
-			body: JSON.stringify(article)
-		});
-		if (!res.ok) throw await res.json();
-		return res.json();
+		return this._makeRequest(`/articles`,"POST",article,token)
 	}
 
 	async deleteArticle(id, token) {
-		const res = await fetch(`http://localhost:3000/articles/${id}`, {
-			method: "DELETE",
-			headers: {
-				Authorization: `Bearer ${token}`
-			}
-		});
-		if (!res.ok) throw await res.json();
-		return res.json();
+		return this._makeRequest(`/articles/${id}`,"DELETE",null,token)
 	}
 
 	async getSavedArticles(token) {
-		const res = await fetch("http://localhost:3000/articles", {
-			headers: {
-				Authorization: `Bearer ${token}`
-			}
-		});
-		if (!res.ok) throw await res.json();
-		return res.json();
+		return this._makeRequest(`/articles`,"GET",null,token)
 	}
 
 	async getNews(keyword){
@@ -99,8 +59,8 @@ class Api {
 		fromDate.setDate(today.getDate() - 7);
 		const from = fromDate.toISOString().split('T')[0];
 
-		// const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`; funciona só local
-		const url = `https://nomoreparties.co/news/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`;
+		const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`; //funciona só local
+		// const url = `https://nomoreparties.co/news/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`;
 
 		const response = await fetch(url);
 		if (!response.ok) {

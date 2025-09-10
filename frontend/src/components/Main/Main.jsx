@@ -27,7 +27,6 @@ function Main() {
 		try {
 			const data = await api.getNews(search)
 			setArticles(data.articles)
-			console.log(data.articles)
 			setLastKeyword(search);
 		} catch (error) {
 			setError("Desculpe, algo deu errado durante a solicitação. \
