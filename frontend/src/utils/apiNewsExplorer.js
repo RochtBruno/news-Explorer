@@ -2,7 +2,7 @@ class Api {
 
 	constructor({ newsApiKey}) {
 		this._newsApiKey = newsApiKey
-		this._baseUrl = "http://localhost:3000"
+		this._baseUrl = "https://news-explorer-xwja.onrender.com/"
 	}
 
 	async _makeRequest(url, method, body, token) {
