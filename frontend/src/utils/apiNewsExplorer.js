@@ -59,8 +59,8 @@ class Api {
 		fromDate.setDate(today.getDate() - 7);
 		const from = fromDate.toISOString().split('T')[0];
 
-		const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`; //funciona só local
-		// const url = `https://nomoreparties.co/news/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`;
+		//const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`; //funciona só local
+		const url = `https://nomoreparties.co/news/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${this._newsApiKey}&from=${from}&to=${to}&pageSize=100`;
 
 		const response = await fetch(url);
 		if (!response.ok) {
